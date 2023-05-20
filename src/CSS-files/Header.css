@@ -4,7 +4,9 @@ nav{
     display: flex;
     justify-content: space-around;
     align-items: center;
-background-color: #e169bd;
+    box-shadow: 0 0 5px black;
+
+background-color: rgb(206, 202, 202);
 
     /* border: 2px solid blue; */
 }
