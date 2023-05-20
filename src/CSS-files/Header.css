@@ -1,0 +1,19 @@
+nav{
+    height: 10%;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+background-color: #e169bd;
+
+    /* border: 2px solid blue; */
+}
+.profile{
+    /* border: 2px solid red; */
+    width: 10%;
+}
+nav input{
+    width:  40%;
+    height: 70%;
+
+} 

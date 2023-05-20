@@ -1,0 +1,38 @@
+main{
+    height: 80%;
+    width: 100%;
+    /* border: 2px solid green; */
+    box-shadow: 0 0 5px black;
+}
+table th,
+table  td {
+  padding: 5px;
+  text-align: left;
+}
+
+table th {
+  font-size: 0.9rem;
+  background-color: gray;
+  color: black;
+  font-weight: 500;
+}
+
+table tbody a{
+  text-decoration: none;
+
+}
+table tbody tr:nth-child(even) {
+background-color: lightgoldenrodyellow;
+}
+
+
+
+table tbody tr:nth-child(odd) {
+background-color: white;
+}
+
+table tbody tr:hover{
+background-color: rgb(114, 176, 193);
+cursor: pointer;
+
+}
