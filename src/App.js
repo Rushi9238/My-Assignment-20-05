@@ -10,13 +10,13 @@ import CommentsPage from './Components/CommentsPage';
 
 function App() {
   const dispatch=useDispatch()
-  const [currentPage, setCurrentPage] = useState(1);
+  const [nowPage, setNowPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
   // const [dataAPI, setDataAPI] = useState([]);
   useEffect(() => {
     async function fetchUsers() {
       try {
-        const res = await fetch(`https://jsonplaceholder.typicode.com/posts?_page=${currentPage}&_limit=10`);
+        const res = await fetch(`https://jsonplaceholder.typicode.com/posts?_page=${nowPage}&_limit=10`);
         const data = await res.json();
         const totalCount = res.headers.get('X-Total-Count');
         dispatch(postdata(data))
@@ -26,7 +26,7 @@ function App() {
       }
     }
     fetchUsers();
-  }, [currentPage]);
+  }, [nowPage]);
 
   return (
     <BrowserRouter>
@@ -36,17 +36,17 @@ function App() {
         <Route path='/' element={<HomeCotaine/>} />
         <Route path='/comment/:id' element={<CommentsPage/>}/>
       </Routes>
-     <div className='paginations'>
+      <div className='paginations'>
         <button onClick={() => {
-          setCurrentPage((prevPage) => Math.max(prevPage - 1, 1));
-        }} disabled={currentPage === 1}>Previous</button>
+          setNowPage((prevPage) => Math.max(prevPage - 1, 1));
+        }} disabled={nowPage === 1}>Previous</button>
         <span>
           {Array.from({ length: totalPages }, (_, i) => i + 1).map((ele) => (
             <button 
-              className={ele ===currentPage?"active":"numbers"}
+              className={ele ===nowPage?"active":"numbers"}
               key={ele}
               onClick={() => {
-                setCurrentPage(ele);
+                setNowPage(ele);
               }}
             >
               {ele}
@@ -54,8 +54,8 @@ function App() {
           ))}
         </span>
         <button onClick={() => {
-          setCurrentPage((prevPage) => Math.min(prevPage + 1, totalPages));
-        }} disabled={currentPage === totalPages}>Next</button>
+          setNowPage((prevPage) => Math.min(prevPage + 1, totalPages));
+        }} disabled={nowPage === totalPages}>Next</button>
       </div>
      
     </div>
