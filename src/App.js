@@ -16,13 +16,13 @@ function App() {
   useEffect(() => {
     async function fetchUsers() {
       try {
-        const res = await fetch(`https://jsonplaceholder.typicode.com/posts?_page=${nowPage}&_limit=10`);
-        const data = await res.json();
-        const totalCount = res.headers.get('X-Total-Count');
-        dispatch(postdata(data))
+        const api = await fetch(`https://jsonplaceholder.typicode.com/posts?_page=${nowPage}&_limit=10`);
+        const respo = await api.json();
+        const totalCount = api.headers.get('X-Total-Count');
+        dispatch(postdata(respo))
         setTotalPages(Math.ceil(totalCount / 10));
       } catch (error) {
-        console.error("Error fetching data:", error);
+        console.error("Data Not fetching plaese wait or refersh the page:", error);
       }
     }
     fetchUsers();
